@@ -85,8 +85,3 @@ const build = gulp.series(clean, dev);
 
 module.exports.default = gulp.series(build, serve);
 module.exports.build = gulp.series(build);
-
-gulp.task('deploy', () => {
-	return gulp.src(paths.dist)
-		.pipe(ghPages());
-});
