@@ -7,6 +7,7 @@ const cleanCSS = require('gulp-clean-css');
 const postCSS = require('gulp-postcss');
 const rename = require('gulp-rename');
 const del = require('del');
+const ghPages = require('gulp-gh-pages');
 
 const paths = {
 	dist: './dist',
@@ -84,3 +85,8 @@ const build = gulp.series(clean, dev);
 
 module.exports.default = gulp.series(build, serve);
 module.exports.build = gulp.series(build);
+
+gulp.task('deploy', () => {
+	return gulp.src(paths.dist)
+		.pipe(ghPages());
+});
