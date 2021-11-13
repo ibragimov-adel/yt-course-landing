@@ -249,6 +249,92 @@ img {
   }
 }
 
+.modules {
+  &__main {
+    display: flex;
+  }
+
+  &__nav {
+    padding-right: 100px;
+    border-right: 1px solid rgba($white, .3);
+  }
+
+  &__nav-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  &__nav-list {
+    letter-spacing: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+  }
+
+  &__nav-item {
+    margin-bottom: 15px;
+    font-size: 24px;
+    line-height: 36px;
+    transition: all .3s ease;
+    cursor: pointer;
+    width: 50%;
+
+    &:hover {
+      color: lighten($blue, 10);
+    }
+
+    &_active {
+      font-size: 36px;
+      font-weight: bold;
+      color: $blue;
+    }
+  }
+
+  &__content {
+    padding-left: 100px;
+  }
+
+  &__content-wrapper {
+    line-height: 130%;
+    font-size: 18px;
+    display: none;
+    letter-spacing: .5px;
+    animation-name: fadeIn;
+    animation-duration: .5s;
+
+    &_active {
+      display: block;
+    }
+  }
+
+  &__content-question {
+    margin-bottom: 60px;
+    font-size: 22px;
+    font-weight: bold;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__content-subtitle {
+    margin-bottom: 20px;
+    font-size: 64px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba($blue, .1);
+  }
+
+  &__content-answer {
+    margin-top: -20px;
+    font-size: 18px;
+    color: rgba($white, .9);
+  }
+}
+
+// ============= ANIMATIONS =================
+
 @keyframes advantage-number {
   0%, 20%, 100% {
     font-size: 160px;
@@ -257,3 +343,15 @@ img {
     font-size: 170px;
   }
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ============= END ANIMATIONS =================
+
