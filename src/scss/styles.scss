@@ -25,6 +25,11 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .title {
   font-size: 36px;
   text-transform: uppercase;
@@ -100,6 +105,18 @@ img {
 
   &__subtitle {
     font-size: 38px;
+    margin-bottom: 80px;
+  }
+
+  &__link {
+    padding: 20px;
+    background-color: $blue;
+    border-radius: 20px;
+    transition: all .3s ease;
+
+    &:hover {
+      background-color: darken($blue, 10);
+    }
   }
 }
 
@@ -333,6 +350,246 @@ img {
   }
 }
 
+.cases {
+  &__item {
+  }
+}
+
+.case {
+  overflow: hidden;
+  background-color: $purple;
+  box-shadow: 0 0 20px 5px rgba($white, .2);
+  border-radius: 20px;
+
+  &__img {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__name {
+    margin-bottom: 20px;
+  }
+
+  &__inst {
+    color: rgba($white, .7);
+    margin-bottom: 40px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__a {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__b {
+    background-color: $blue;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__interview {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__info {
+    width: 260px;
+    text-align: center;
+    background-color: $white;
+    color: $purple;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: -30px;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  &__inst {
+    color: rgba($purple, .7);
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tariffs {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -100px;
+  }
+
+  &__item {
+    width: 50%;
+    padding: 0 50px;
+    margin-top: 100px;
+  }
+}
+
+.tariff {
+  padding: 60px 40px;
+  background-color: $purple;
+  border-radius: 20px;
+  text-align: center;
+
+  &_yellow {
+    background-color: $yellow;
+    color: $purple;
+
+    .tariff__item::before {
+      background-color: $purple;
+    }
+
+    .tariff__stats-text {
+      color: rgba($purple, .7);
+    }
+  }
+
+  &__title {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+
+  &__list {
+    text-align: left;
+    margin-bottom: 60px;
+  }
+
+  &__item {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $blue;
+    }
+  }
+
+  &__price {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    display: block;
+    padding: 20px 30px;
+    background-color: $white;
+    color: $purple;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+
+  &__stats {}
+
+  &__numbers {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  &__free {}
+
+  &__total {}
+
+  &__stats-text {
+    color: rgba($white, .7);
+  }
+}
+
+.modals {
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, .9);
+
+    animation-name: fadeIn;
+    animation-duration: .3s;
+
+    &_opened {
+      display: block;
+    }
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 640px;
+
+  animation-name: modal;
+  animation-duration: .6s;
+
+  &_opened {
+    display: block;
+  }
+
+  &__video {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
 // ============= ANIMATIONS =================
 
 @keyframes advantage-number {
@@ -350,6 +607,17 @@ img {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
