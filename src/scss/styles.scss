@@ -40,6 +40,10 @@ a {
   margin-left: auto;
   margin-right: auto;
   line-height: 120%;
+
+  @media (max-width: 475px) {
+    font-size: 28px;
+  }
 }
 
 .section {
@@ -96,16 +100,30 @@ a {
       color: $blue;
       font-size: 48px;
     }
+
+    @media (max-width: 767px) {
+      span {
+        font-size: 36px;
+      }
+    }
   }
 
   &__title {
     font-size: 48px;
     margin-bottom: 20px;
+
+    @media (max-width: 767px) {
+      font-size: 36px;
+    }
   }
 
   &__subtitle {
     font-size: 38px;
     margin-bottom: 80px;
+
+    @media (max-width: 767px) {
+      font-size: 28px;
+    }
   }
 
   &__link {
@@ -145,6 +163,12 @@ a {
       width: 50%;
     }
   }
+
+  @media (max-width: 767px) {
+    &__item {
+      width: 100%;
+    }
+  }
 }
 
 .fw-item {
@@ -182,6 +206,15 @@ a {
       background-color: $blue;
     }
   }
+
+  @media (max-width: 475px) {
+    padding: 15px;
+
+    &__title {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+  }
 }
 
 .how {
@@ -214,6 +247,19 @@ a {
     width: 33.3%;
     padding: 0 60px;
     margin-top: 150px;
+  }
+
+  @media (max-width: 1100px) {
+    &__item {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__item {
+      width: 100%;
+      padding: 0;
+    }
   }
 }
 
@@ -348,6 +394,50 @@ a {
     font-size: 18px;
     color: rgba($white, .9);
   }
+
+  @media (max-width: 1100px) {
+    &__nav {
+      padding-right: 20px;
+    }
+
+    &__content {
+      padding-left: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__main {
+      flex-direction: column;
+    }
+
+    &__nav {
+      padding-right: 0;
+      margin-bottom: 60px;
+      border: none;
+    }
+
+    &__nav-list {
+      width: 100%;
+    }
+
+    &__nav-item {
+      width: 10%;
+    }
+
+    &__content {
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 475px) {
+    &__nav-item {
+      width: 20%;
+    }
+
+    &__content-subtitle {
+      font-size: 32px;
+    }
+  }
 }
 
 .cases {
@@ -457,6 +547,18 @@ a {
     padding: 0 50px;
     margin-top: 100px;
   }
+
+  @media (max-width: 972px) {
+    &__list {
+      margin-top: -50px;
+    }
+
+    &__item {
+      width: 100%;
+      padding: 0;
+      margin-top: 50px;
+    }
+  }
 }
 
 .tariff {
@@ -521,20 +623,23 @@ a {
     background-color: $white;
     color: $purple;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     cursor: pointer;
   }
 
-  &__stats {}
+  &__stats {
+  }
 
   &__numbers {
     font-size: 24px;
     margin-bottom: 10px;
   }
 
-  &__free {}
+  &__free {
+  }
 
-  &__total {}
+  &__total {
+  }
 
   &__stats-text {
     color: rgba($white, .7);
