@@ -52,4 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('.modal').forEach(elem => {
 		elem.addEventListener('click', e => e.stopPropagation());
 	});
+
+	document.querySelectorAll('[data-target=tinkoff]').forEach(elem => {
+		const item = elem.dataset.item;
+		const sum = parseInt(elem.dataset.sum);
+
+		elem.addEventListener('click', () => {
+			window.tinkoff.create({
+				shopId: '325d2b43-5c1a-489d-b21c-8d85e447a9ec',
+				showcaseId: '60dd7f4c-7f2c-4c21-8aef-c95c8b361947',
+				sum: sum,
+				items: [
+					{
+						name: item,
+						quantity: 1,
+						price: sum
+					}
+				]
+			}, {
+				view: 'modal'
+			});
+		});
+	});
 });

@@ -20,6 +20,11 @@ body {
   color: $white;
 }
 
+button {
+  font: inherit;
+  border: none;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -619,6 +624,7 @@ a {
 
   &__button {
     display: block;
+    width: 100%;
     padding: 20px 30px;
     background-color: $white;
     color: $purple;
