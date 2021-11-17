@@ -5,6 +5,8 @@ const ACTIVE_MODAL_OVERLAY_CLASS = 'modals__overlay_opened';
 const ACTIVE_MODAL_CLASS = 'modal_opened';
 
 document.addEventListener('DOMContentLoaded', () => {
+	document.querySelector('#year').textContent = new Date().getFullYear();
+
 	let currentModule = '01';
 	const modulesControls = document.querySelectorAll('.modules__nav-item');
 	const modulesContents = document.querySelectorAll('.modules__content-wrapper');
