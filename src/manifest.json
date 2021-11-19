@@ -1,0 +1,25 @@
+{
+  "short-name": "Создай успешный YouTube канал",
+  "name": "СОЗДАЙ УСПЕШНЫЙ YOUTUBE-КАНАЛ И НАЧНИ ЗАРАБАТЫВАТЬ НА НЕМ ОТ 1000$",
+  "icons": [
+    {
+      "src": "/img/logo64.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#02070D"
+}

@@ -4,6 +4,8 @@ const ACTIVE_MODULE_CONTROL_CLASS = 'modules__nav-item_active';
 const ACTIVE_MODAL_OVERLAY_CLASS = 'modals__overlay_opened';
 const ACTIVE_MODAL_CLASS = 'modal_opened';
 
+const ACTIVE_ACCORDION_CLASS = 'acc-item_active';
+
 document.addEventListener('DOMContentLoaded', () => {
 	document.querySelector('#year').textContent = new Date().getFullYear();
 
@@ -73,6 +75,29 @@ document.addEventListener('DOMContentLoaded', () => {
 				]
 			}, {
 				view: 'modal'
+			});
+		});
+	});
+
+	document.querySelectorAll('.accordion').forEach(accordion => {
+		let activeItem = accordion.querySelector(`.${ACTIVE_ACCORDION_CLASS}`).id;
+
+		const items = {};
+		accordion.querySelectorAll('.acc-item').forEach(elem => {
+			items[elem.id] = elem;
+		});
+
+		accordion.querySelectorAll('[data-control=accordion]').forEach(toggler => {
+			const target = toggler.dataset.target;
+
+			toggler.addEventListener('click', () => {
+				if (activeItem === target) {
+					return;
+				}
+
+				items[activeItem].classList.remove(ACTIVE_ACCORDION_CLASS);
+				activeItem = target;
+				items[activeItem].classList.add(ACTIVE_ACCORDION_CLASS);
 			});
 		});
 	});

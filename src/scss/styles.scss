@@ -262,7 +262,7 @@ a {
 
 .how {
   position: relative;
-  background-image: url('https://thatsnoisy.site/img/background.jpg');
+  background-image: url('/img/background.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -690,8 +690,8 @@ a {
   }
 
   &_personal {
-    background: rgb(255,237,21);
-    background: radial-gradient(circle, rgba(255,237,21,1) 0%, rgba(255,231,0,1) 38%, rgba(193,139,1,1) 100%);
+    background: rgb(255, 237, 21);
+    background: radial-gradient(circle, rgba(255, 237, 21, 1) 0%, rgba(255, 231, 0, 1) 38%, rgba(193, 139, 1, 1) 100%);
     color: $purple;
     animation-name: box-shadow-shine;
     animation-duration: 1.5s;
@@ -829,6 +829,91 @@ a {
   }
 }
 
+.faq {
+  &__accordion {
+    max-width: 640px;
+  }
+}
+
+.accordion {
+  background-color: $white;
+  color: $purple;
+  border-radius: 20px;
+  padding-bottom: 20px;
+}
+
+.acc-item {
+  overflow: hidden;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $purple;
+  }
+
+  &__header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__header-text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__toggler {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: $purple;
+    cursor: pointer;
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background-color: $white;
+      transition: all .3s ease;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotateZ(90deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+  }
+
+  &__body {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    display: none;
+  }
+
+  &_active {
+    .acc-item {
+      &__body {
+        display: block;
+      }
+
+      &__toggler {
+        &::before {
+          transform: translate(-50%, -50%) rotateZ(45deg);
+        }
+
+        &::after {
+          transform: translate(-50%, -50%) rotateZ(-45deg);
+        }
+      }
+    }
+  }
+}
+
 .modals {
   &__overlay {
     display: none;
@@ -945,13 +1030,13 @@ a {
 
 @keyframes box-shadow-shine {
   0% {
-    box-shadow: 0 0 10px rgba(255,231,0,1);
+    box-shadow: 0 0 10px rgba(255, 231, 0, 1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(255,231,0,1);
+    box-shadow: 0 0 30px rgba(255, 231, 0, 1);
   }
   100% {
-    box-shadow: 0 0 10px rgba(255,231,0,1);
+    box-shadow: 0 0 10px rgba(255, 231, 0, 1);
   }
 }
 

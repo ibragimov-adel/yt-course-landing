@@ -18,14 +18,16 @@ const src = {
 	html: paths.src + '/*.html',
 	img: paths.src + '/img/**/*.*',
 	scss: paths.src + '/scss/**/*.scss',
-	js: paths.src + '/js/**/*.js'
+	js: paths.src + '/js/**/*.js',
+	json: paths.src + '/**/*.json'
 };
 
 const dist = {
 	html: paths.dist,
 	img: paths.dist + '/img/',
 	css: paths.dist + '/css/',
-	js: paths.dist + '/js/'
+	js: paths.dist + '/js/',
+	json: paths.dist
 };
 
 function html() {
@@ -61,6 +63,12 @@ function images() {
 		.pipe(browserSync.stream());
 }
 
+function json() {
+	return gulp.src(src.json)
+		.pipe(gulp.dest(dist.json))
+		.pipe(browserSync.stream())
+}
+
 function clean(cb) {
 	return del(paths.dist).then(() => cb());
 }
@@ -78,9 +86,10 @@ function serve() {
 	gulp.watch(src.scss, gulp.series(scss));
 	gulp.watch(src.js, gulp.series(js));
 	gulp.watch(src.img, gulp.series(images));
+	gulp.watch(src.json, gulp.series(json));
 }
 
-const dev = gulp.parallel(html, scss, js, images);
+const dev = gulp.parallel(html, scss, js, images, json);
 const build = gulp.series(clean, dev);
 
 module.exports.default = gulp.series(build, serve);
