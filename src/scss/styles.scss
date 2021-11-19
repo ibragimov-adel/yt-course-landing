@@ -582,6 +582,24 @@ a {
   }
 }
 
+.speakers {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    &__item {
+      width: 100%;
+      margin-bottom: 80px;
+    }
+  }
+}
+
 .speaker {
   display: flex;
   flex-direction: column;
@@ -609,6 +627,11 @@ a {
     background-size: contain;
     background-repeat: no-repeat;
     border: 5px solid $purple;
+
+    &_full {
+      background-size: cover;
+      background-position: top;
+    }
   }
 
   &__name {
@@ -786,6 +809,13 @@ a {
     }
   }
 
+  &__old-price {
+    font-size: 24px;
+    color: red;
+    text-decoration: line-through;
+    margin-bottom: 20px;
+  }
+
   &__price {
     font-size: 32px;
     font-weight: bold;
@@ -858,6 +888,7 @@ a {
   &__header-text {
     font-size: 20px;
     font-weight: bold;
+    max-width: 70%;
   }
 
   &__toggler {
